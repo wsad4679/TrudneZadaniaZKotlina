@@ -6,15 +6,15 @@ interface RollingTool{
 
 class Coin : RollingTool{
 
-    override fun roll(){
-        val coinThrow: Int = (1..2).random()
-        if (coinThrow == 1){
-            println("Rzut monetą: orzeł")
+        override fun roll(){
+            val coinThrow: Int = (1..2).random()
+            if (coinThrow == 1){
+                println("Rzut monetą: orzeł")
+            }
+            else{
+                println("Rzut monetą: reszka")
+            }
         }
-        else{
-            println("Rzut monetą: reszka")
-        }
-    }
 
 }
 
@@ -29,8 +29,24 @@ fun main(){
     while (true){
         println("Rzut monetą: C, Rzut kostką: D, Zakończenie programu: E: ")
         val dzialanie: String = readln()
-        println(dzialanie)
-        break
+
+        if (dzialanie == "C")
+        {
+            val coinThrow = Coin()
+            coinThrow.roll()
+        }
+
+        else if(dzialanie == "D")
+        {
+            val diceThrow = Dice()
+            diceThrow.roll()
+        }
+
+        else
+        {
+            break
+        }
+
 
     }
 }
